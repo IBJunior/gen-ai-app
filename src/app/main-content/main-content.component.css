@@ -1,0 +1,130 @@
+.main-content {
+  padding: 20px;
+}
+.menu-icon {
+  padding: 16px;
+  padding-top: 24px;
+}
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  justify-content: flex-end;
+}
+
+.assistant-result {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+::ng-deep .mat-form-field-outline {
+  border-radius: 50px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  border-top: 0;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: transparent;
+}
+
+.main-content {
+  padding-left: 2.5rem;
+}
+.input-container input {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.4rem;
+  border-radius: 50px;
+  background-color: #f0f4f9;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.input-container {
+  position: fixed;
+  padding: 1.4rem;
+  padding-bottom: 2rem;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+}
+.main-content {
+  padding-bottom: 8.5rem;
+  padding-left: 3.4rem;
+}
+
+.toolbar-title {
+  padding-left: 1.4rem;
+  color: purple;
+  font-weight: 500;
+}
+.custom-icon-button {
+  border: none;
+  background-color: transparent;
+}
+.fixed-toolbar {
+  position: fixed;
+  width: 75%;
+}
+.main-content {
+  padding-top: 6rem;
+}
+
+
+.user-questions,
+.assistant-results {
+  display: flex;
+  justify-content: space-between;
+}
+.assistant-results {
+  margin-top: 1.5rem;
+}
+.user-questions .user-icon button,
+.custom-icon-button {
+  color: #2196f3;
+}
+.assistant-results .user-icon button {
+  color: purple;
+}
+.conversation-container:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.conversations {
+  width: 85%;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  margin: auto;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.large-icon {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+.medium-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+.user-text,
+.assistant-text {
+  width: 95%;
+  margin-left: 0.7rem;
+}
+
+p {
+  margin: 0 !important;
+}
