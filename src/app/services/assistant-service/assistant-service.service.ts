@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
-export class DataService {
+export class AssistantService {
   private apiUrl = 'http://localhost:8080/api/assistant/info';
 
 

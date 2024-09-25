@@ -4,14 +4,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { DataService } from '../data-service.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { Conversation } from '../models/conversation.model';
 import { NgFor } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
-import { ConversationsService } from '../conversations.service';
 import { ChatOptionsComponent } from '../chat-options/chat-options.component';
+import { AssistantService } from '../../services/assistant-service/assistant-service.service';
+import { ConversationsService } from '../../services/conversations-service/conversations.service';
+import { Conversation } from '../../models/conversation.model';
 
 
 
@@ -48,7 +48,7 @@ export class MainContentComponent implements OnInit {
   isResponding: boolean = true;
   isQuestionAsked: boolean = false;
 
-  constructor(private dataService: DataService, private conversationsService: ConversationsService) { }
+  constructor(private assistantService: AssistantService, private conversationsService: ConversationsService) { }
 
   ngOnInit(): void {
     this.conversationsService.getConversationHistory().subscribe((conversations: Conversation[]) => {
@@ -62,7 +62,7 @@ export class MainContentComponent implements OnInit {
     this.completion = "";
     this.isQuestionAsked = true;
     this.conversationHistory.push({ question: question, answer: "" });
-    this.dataService.getDataStream(question).subscribe({
+    this.assistantService.getDataStream(question).subscribe({
       next: (chunk: any) => {
         this.completion += chunk;
 
