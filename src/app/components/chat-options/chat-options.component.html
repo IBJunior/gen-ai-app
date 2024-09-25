@@ -1,30 +1,50 @@
 <div class="user-greating">
-    <p class="greeting-name">Bonjour, {{ userName }}!</p>
-    <p>Comment puis-je vous aider aujourd'hui?</p>
-  </div>
-  <div class="subject-container">
-    <div class="subject-item">
-      <p>Vos Réservations</p>
-      <div class="icon-circle">
-        <mat-icon class="bottom-right-icon">flight</mat-icon>
-      </div>
-    </div>
-    <div class="subject-item">
-      <p>Nos Meilleures Destinations</p>
-      <div class="icon-circle">
-        <mat-icon class="bottom-right-icon">place</mat-icon>
-      </div>
-    </div>
-    <div class="subject-item">
-      <p>Réclamations</p>
-      <div class="icon-circle">
-        <mat-icon class="bottom-right-icon">feedback</mat-icon>
-      </div>
-    </div>
-    <div class="subject-item">
-      <p>Informations Générales</p>
-      <div class="icon-circle">
-        <mat-icon class="bottom-right-icon">info</mat-icon>
-      </div>
+  <p class="greeting-name">Bonjour, {{ userName }}!</p>
+  <p>Comment puis-je vous aider aujourd'hui?</p>
+</div>
+<div class="subject-container">
+  <div
+    class="subject-item"
+    [ngClass]="{ 'selected-subject': isSelected(Subject.RESERVATIONS) }"
+    role="button"
+    (click)="setSubjectSelected(Subject.RESERVATIONS)"
+  >
+    <p>Vos Réservations</p>
+    <div class="icon-circle">
+      <mat-icon class="bottom-right-icon">flight</mat-icon>
     </div>
   </div>
+  <div
+    class="subject-item"
+    [ngClass]="{ 'selected-subject': isSelected(Subject.DESTINATIONS) }"
+    role="button"
+    (click)="setSubjectSelected(Subject.DESTINATIONS)"
+  >
+    <p>Nos Meilleures Destinations</p>
+    <div class="icon-circle">
+      <mat-icon class="bottom-right-icon">place</mat-icon>
+    </div>
+  </div>
+  <div
+    class="subject-item"
+    [ngClass]="{ 'selected-subject': isSelected(Subject.RECLAMATIONS) }"
+    role="button"
+    (click)="setSubjectSelected(Subject.RECLAMATIONS)"
+  >
+    <p>Réclamations</p>
+    <div class="icon-circle">
+      <mat-icon class="bottom-right-icon">feedback</mat-icon>
+    </div>
+  </div>
+  <div
+    class="subject-item"
+    [ngClass]="{ 'selected-subject': isSelected(Subject.INFORMATIONS) }"
+    role="button"
+    (click)="setSubjectSelected(Subject.INFORMATIONS)"
+  >
+    <p>Informations Générales</p>
+    <div class="icon-circle">
+      <mat-icon class="bottom-right-icon">info</mat-icon>
+    </div>
+  </div>
+</div>

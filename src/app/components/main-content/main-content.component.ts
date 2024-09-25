@@ -51,9 +51,9 @@ export class MainContentComponent implements OnInit {
   constructor(private assistantService: AssistantService, private conversationsService: ConversationsService) { }
 
   ngOnInit(): void {
-    this.conversationsService.getConversationHistory().subscribe((conversations: Conversation[]) => {
-      this.conversationHistory = conversations;
-    });
+    // this.conversationsService.getConversationHistory().subscribe((conversations: Conversation[]) => {
+    //   this.conversationHistory = conversations;
+    // });
   }
 
   initCompletion() {
