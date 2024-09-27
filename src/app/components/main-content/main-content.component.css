@@ -13,11 +13,6 @@ mat-toolbar {
   justify-content: flex-end;
 }
 
-.assistant-result {
-  max-height: 700px;
-  overflow-y: auto;
-}
-
 ::ng-deep .mat-form-field-wrapper {
   padding-bottom: 0;
 }
@@ -80,7 +75,6 @@ mat-toolbar {
   padding-top: 6rem;
 }
 
-
 .user-questions,
 .assistant-results {
   display: flex;
@@ -119,6 +113,7 @@ mat-toolbar {
   width: 28px;
   height: 28px;
 }
+
 .user-text,
 .assistant-text {
   width: 95%;
@@ -127,4 +122,35 @@ mat-toolbar {
 
 p {
   margin: 0 !important;
+}
+
+.main-content {
+  max-height: calc(100vh - 64px - 121px);
+  overflow-y: auto;
+}
+
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #f0f4f9;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #cbcbcb;
+}
+.main-content-container {
+  height: 100vh;
+  overflow: hidden !important;
+}
+
+.input-container input:focus {
+  outline: none;
+  background-color: #d1dbe7;
 }

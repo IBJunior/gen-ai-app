@@ -6,10 +6,37 @@
     fontIcon="menu"
   ></mat-icon>
   <mat-nav-list>
-    <a mat-list-item routerLink="/profile">Profile</a>
-    <a mat-list-item routerLink="/dashboard">Dashboard</a>
-    <a mat-list-item routerLink="/e-commerce">E-commerce</a>
-    <a mat-list-item routerLink="/user">User</a>
-    <a mat-list-item routerLink="/documentation">Documentation</a>
+    <div class="recent-conversations">
+      <div class="conversation conversations-title">Conversations récentes</div>
+      <div class="conversation conversation-btn">
+        <mat-icon
+          class="conversation-icon"
+          aria-hidden="false"
+          aria-label="chat icon"
+          fontIcon="chat"
+        ></mat-icon>
+        <a routerLink="/profile">Conversation</a>
+      </div>
+      <div class="conversation conversations-title">Gestion</div>
+
+      <div class="conversation conversation-btn">
+        <mat-icon
+          class="conversation-icon"
+          aria-hidden="false"
+          aria-label="help icon"
+          fontIcon="help"
+        ></mat-icon>
+        <a routerLink="/profile">Aide</a>
+      </div>
+      <div class="conversation conversation-btn">
+        <mat-icon
+          class="conversation-icon"
+          aria-hidden="false"
+          aria-label="settings icon"
+          fontIcon="settings"
+        ></mat-icon>
+        <a routerLink="/profile">Paramètres</a>
+      </div>
+    </div>
   </mat-nav-list>
 </ng-container>

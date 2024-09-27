@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,16 +12,6 @@ import { ChatOptionsComponent } from '../chat-options/chat-options.component';
 import { AssistantService } from '../../services/assistant-service/assistant-service.service';
 import { ConversationsService } from '../../services/conversations-service/conversations.service';
 import { Conversation } from '../../models/conversation.model';
-
-
-
-
-
-
-
-
-
-
 
 @Component({
   selector: 'app-main-content',
@@ -41,7 +31,9 @@ import { Conversation } from '../../models/conversation.model';
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css'
 })
-export class MainContentComponent implements OnInit {
+export class MainContentComponent implements OnInit, AfterViewChecked {
+  //@ts-ignorets-ignore
+  @ViewChild('mainContent') private mainContent: ElementRef;
   completion: string = "";
   userInput: string = "";
   conversationHistory: Conversation[] = [];
@@ -51,9 +43,19 @@ export class MainContentComponent implements OnInit {
   constructor(private assistantService: AssistantService, private conversationsService: ConversationsService) { }
 
   ngOnInit(): void {
-    // this.conversationsService.getConversationHistory().subscribe((conversations: Conversation[]) => {
-    //   this.conversationHistory = conversations;
-    // });
+    this.conversationsService.getConversationHistory().subscribe((conversations: Conversation[]) => {
+      this.conversationHistory = conversations;
+    });
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
+  private scrollToBottom(): void {
+    try {
+      this.mainContent.nativeElement.scrollTop = this.mainContent.nativeElement.scrollHeight;
+    } catch (err) { }
   }
 
   initCompletion() {
@@ -82,6 +84,7 @@ export class MainContentComponent implements OnInit {
         });
       }
     });
+    setTimeout(() => this.scrollToBottom(), 0);
   }
 
   getLastConversation(): Conversation {
