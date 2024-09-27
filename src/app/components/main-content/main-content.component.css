@@ -37,11 +37,13 @@ mat-toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.4rem;
+  padding: 1.3rem;
   border-radius: 50px;
   background-color: #f0f4f9;
   border: none;
   font-size: 1.1rem;
+  margin-left: -1.5rem;
+  
 }
 
 .input-container {
@@ -72,7 +74,7 @@ mat-toolbar {
   width: 75%;
 }
 .main-content {
-  padding-top: 6rem;
+  padding-top: 5rem;
 }
 
 .user-questions,

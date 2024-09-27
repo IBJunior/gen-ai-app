@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AssistantService {
-  private apiUrl = 'http://localhost:8080/api/assistant/faq';
+  private apiUrl = 'http://localhost:8080/api/assistant/destinations';
 
 
   getDataStream(userInput: string): Observable<any> {
