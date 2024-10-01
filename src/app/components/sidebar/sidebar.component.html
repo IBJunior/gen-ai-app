@@ -19,6 +19,19 @@
       </div>
       <div class="conversation conversations-title">Gestion</div>
 
+      <div
+        class="conversation conversation-btn"
+        (click)="goToSubjects()"
+        role="button"
+      >
+        <mat-icon
+          class="conversation-icon"
+          aria-hidden="false"
+          aria-label="help icon"
+          fontIcon="subject"
+        ></mat-icon>
+        <a routerLink="/profile">Sujets</a>
+      </div>
       <div class="conversation conversation-btn">
         <mat-icon
           class="conversation-icon"

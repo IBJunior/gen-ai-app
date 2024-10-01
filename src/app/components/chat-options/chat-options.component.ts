@@ -21,7 +21,7 @@ export class ChatOptionsComponent {
   }
 
   isSelected(subject: string): boolean {
-    return this.chatOptionsService.getSubjectSelected() === subject;
+    return this.chatOptionsService.getSubjectSelected() === subject.toLocaleLowerCase();
   }
 
 }

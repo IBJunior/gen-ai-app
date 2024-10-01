@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ChatOptionsService } from '../chat-options/chat-options.service';
+import { Subject } from '../../models/subject.enum';
 
-@Injectable({ 
+@Injectable({
   providedIn: 'root'
 })
 export class AssistantService {
-  private apiUrl = 'http://localhost:8080/api/assistant/destinations';
+  private baseUrl = 'http://localhost:8080/api/assistant/';
+
+  constructor(private chatOptionsService: ChatOptionsService) { }
 
 
   getDataStream(userInput: string): Observable<any> {
     return new Observable(observer => {
-      fetch(this.apiUrl, {
+      fetch(this.getApiUrl(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -37,5 +41,13 @@ export class AssistantService {
         })
         .catch(error => observer.error(error));
     });
+  }
+
+  getApiUrl(): string {
+    const subject = this.chatOptionsService.getSubjectSelected();
+    if (subject === "default") {
+      return this.baseUrl + Subject.INFORMATIONS.toLocaleLowerCase();
+    }
+    return this.baseUrl + subject;
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { ChatOptionsService } from '../../services/chat-options/chat-options.service';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -10,5 +11,9 @@ import { MatListModule } from '@angular/material/list';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+  constructor(private chatOptionsService: ChatOptionsService) { }
 
+  goToSubjects() {
+    this.chatOptionsService.subjectSelectedEvent.emit();
+  }
 }

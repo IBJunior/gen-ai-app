@@ -156,3 +156,10 @@ p {
   outline: none;
   background-color: #d1dbe7;
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+

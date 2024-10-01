@@ -30,4 +30,9 @@
 }
 .conversation-btn {
   cursor: pointer;
+  padding: 0.5rem;
+}
+.conversation-btn:hover {
+  background-color: lightgray;
+  border-radius: 20px
 }

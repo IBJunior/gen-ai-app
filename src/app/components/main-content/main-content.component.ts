@@ -12,6 +12,7 @@ import { ChatOptionsComponent } from '../chat-options/chat-options.component';
 import { AssistantService } from '../../services/assistant-service/assistant-service.service';
 import { ConversationsService } from '../../services/conversations-service/conversations.service';
 import { Conversation } from '../../models/conversation.model';
+import { ChatOptionsService } from '../../services/chat-options/chat-options.service';
 
 @Component({
   selector: 'app-main-content',
@@ -39,12 +40,21 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
   conversationHistory: Conversation[] = [];
   isResponding: boolean = true;
   isQuestionAsked: boolean = false;
+  maxInputLength: number = 150;
 
-  constructor(private assistantService: AssistantService, private conversationsService: ConversationsService) { }
+  constructor(private assistantService: AssistantService, private conversationsService: ConversationsService,
+    private chatOptionsService: ChatOptionsService
+  ) { }
 
   ngOnInit(): void {
     this.conversationsService.getConversationHistory().subscribe((conversations: Conversation[]) => {
       this.conversationHistory = conversations;
+    });
+    this.chatOptionsService.subjectSelectedEvent.subscribe(() => {
+      this.conversationHistory = [];
+      this.isQuestionAsked = false;
+      console.log("Subject selected !!");
+      
     });
   }
 
@@ -59,6 +69,10 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
   }
 
   initCompletion() {
+    if (this.userInput.length > this.maxInputLength) {
+      return;
+    }
+
     const question = this.userInput;
     this.userInput = "";
     this.completion = "";
