@@ -43,7 +43,6 @@ mat-toolbar {
   border: none;
   font-size: 1.1rem;
   margin-left: -1.5rem;
-  
 }
 
 .input-container {
@@ -161,5 +160,6 @@ p {
   color: red;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+  margin-top: 1.3rem;
+  padding-left: 0.8rem;
 }
-

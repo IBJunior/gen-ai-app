@@ -45,7 +45,7 @@ export class AssistantService {
 
   getApiUrl(): string {
     const subject = this.chatOptionsService.getSubjectSelected();
-    if (subject === "default") {
+    if (subject === "default" || subject === "") {
       return this.baseUrl + Subject.INFORMATIONS.toLocaleLowerCase();
     }
     return this.baseUrl + subject;

@@ -41,6 +41,7 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
   isResponding: boolean = true;
   isQuestionAsked: boolean = false;
   maxInputLength: number = 150;
+  errorMessage: string = "";
 
   constructor(private assistantService: AssistantService, private conversationsService: ConversationsService,
     private chatOptionsService: ChatOptionsService
@@ -54,7 +55,7 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
       this.conversationHistory = [];
       this.isQuestionAsked = false;
       console.log("Subject selected !!");
-      
+
     });
   }
 
@@ -90,12 +91,14 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
       },
       error: (err: any) => {
         console.error('Error receiving data stream', err);
+        this.errorMessage = "Oups !!! il semblerait qu'une erreur est survenue lors de l'envoie de votre question !!";
       },
       complete: () => {
         console.log('Data stream completed');
         this.conversationsService.createConversation({ question: question, answer: this.completion }).subscribe(() => {
           console.log('Conversation created');
         });
+        this.errorMessage = "";
       }
     });
     setTimeout(() => this.scrollToBottom(), 0);
