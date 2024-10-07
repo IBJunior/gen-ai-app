@@ -42,6 +42,7 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
   isQuestionAsked: boolean = false;
   maxInputLength: number = 150;
   errorMessage: string = "";
+  DEFAULT_ERROR_MESSAGE = "Oups !!! il semblerait qu'une erreur est survenue lors de l'envoie de votre question !!";
 
   constructor(private assistantService: AssistantService, private conversationsService: ConversationsService,
     private chatOptionsService: ChatOptionsService
@@ -91,14 +92,17 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
       },
       error: (err: any) => {
         console.error('Error receiving data stream', err);
-        this.errorMessage = "Oups !!! il semblerait qu'une erreur est survenue lors de l'envoie de votre question !!";
+        // extract the value to a constant
+        this.errorMessage = this.DEFAULT_ERROR_MESSAGE;
       },
       complete: () => {
         console.log('Data stream completed');
         this.conversationsService.createConversation({ question: question, answer: this.completion }).subscribe(() => {
           console.log('Conversation created');
         });
-        this.errorMessage = "";
+
+        this.errorMessage = this.completion === "" ? this.DEFAULT_ERROR_MESSAGE : "";
+
       }
     });
     setTimeout(() => this.scrollToBottom(), 0);
