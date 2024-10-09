@@ -10,3 +10,7 @@ Le projet a été généré avec [Angular CLI](https://github.com/angular/angula
 
 1. Cloner et Lancer le projet backend https://github.com/IBJunior/spring-gen-ai.
 2. Ensuite `ng serve` dans le terminal pour lancer l'application front et se rendre sur `http://localhost:4200/`.
+
+## Interface du projet
+
+<img src="docs/front-end.png"/>
