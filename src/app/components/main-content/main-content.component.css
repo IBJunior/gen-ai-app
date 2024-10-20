@@ -163,3 +163,14 @@ p {
   margin-top: 1.3rem;
   padding-left: 0.8rem;
 }
+.select-subject-badge {
+  font-size: 0.6rem;
+  font-weight: 500;
+  padding: 0.1rem;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  border-radius: 10px;
+  background-color: purple;
+  margin-left: 0.5rem;
+  color: #fff;
+}

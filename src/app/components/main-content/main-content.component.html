@@ -1,6 +1,9 @@
 <div class="main-content-container">
   <mat-toolbar color="primary" class="fixed-toolbar">
     <h5 class="toolbar-title">Fly Assistant</h5>
+    <div class="select-subject-badge" *ngIf="getSelectedSubject()">
+      {{ getSelectedSubject() | uppercase }}
+    </div>
     <span class="toolbar-spacer"></span>
     <button mat-icon-button class="custom-icon-button">
       <mat-icon class="large-icon">account_circle</mat-icon>

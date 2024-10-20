@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgIf, UpperCasePipe } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 import { ChatOptionsComponent } from '../chat-options/chat-options.component';
@@ -27,7 +27,8 @@ import { ChatOptionsService } from '../../services/chat-options/chat-options.ser
     MatInputModule,
     FormsModule,
     NgIf,
-    MatIconModule
+    MatIconModule,
+    UpperCasePipe
   ],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css'
@@ -55,9 +56,11 @@ export class MainContentComponent implements OnInit, AfterViewChecked {
     this.chatOptionsService.subjectSelectedEvent.subscribe(() => {
       this.conversationHistory = [];
       this.isQuestionAsked = false;
-      console.log("Subject selected !!");
 
     });
+  }
+  getSelectedSubject() {
+    return this.chatOptionsService.getSubjectSelected();
   }
 
   ngAfterViewChecked() {
